@@ -20,6 +20,7 @@ public class FireBaseInitializer {
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .setDatabaseUrl("https://playlist.firebaseio.com")
                 .build();
 
         FirebaseApp.initializeApp(options);
