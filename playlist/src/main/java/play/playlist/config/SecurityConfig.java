@@ -10,9 +10,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import play.playlist.domain.member.service.MemberService;
 import play.playlist.filter.JwtFilter;
 
 @Configuration
@@ -20,7 +20,7 @@ import play.playlist.filter.JwtFilter;
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private UserDetailsService userDetailsService;
+    private MemberService memberService;
     @Autowired
     private FirebaseAuth firebaseAuth;
 
@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .anyRequest().authenticated().and()
-                .addFilterBefore(new JwtFilter(userDetailsService, firebaseAuth),
+                .addFilterBefore(new JwtFilter(memberService, firebaseAuth),
                         UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling()
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // 로그인, 메인페이지, 리소스
         web.ignoring()
-                .antMatchers("/")
-                .antMatchers("/resources/**");
+                .antMatchers("/", "/members", "/resources/**");
     }
 }

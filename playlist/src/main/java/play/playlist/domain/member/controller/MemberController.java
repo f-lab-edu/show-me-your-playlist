@@ -1,32 +1,40 @@
 package play.playlist.domain.member.controller;
 
-import org.springframework.security.core.Authentication;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import play.playlist.domain.member.entity.Member;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
-import lombok.RequiredArgsConstructor;
+
+
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import play.playlist.domain.member.service.MemberService;
 import play.playlist.dto.RegisterInfo;
 import play.playlist.dto.UserInfo;
 import play.playlist.util.RequestUtil;
-import play.playlist.domain.member.entity.Member;
 
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/members")
+@RequiredArgsConstructor
 public class MemberController {
 
-    final private FirebaseAuth firebaseAuth;
-    final private MemberService memberService;
+    private final FirebaseAuth firebaseAuth;
 
+    private final MemberService memberService;
 
     @PostMapping("")
-    public UserInfo register(@RequestHeader("Authorization") String authorization,
-                             @RequestBody RegisterInfo registerInfo) {
+    public ResponseEntity<UserInfo> register(@RequestHeader("Authorization") String authorization,
+                                             @RequestBody RegisterInfo registerInfo) {
         // TOKEN을 가져온다.
         FirebaseToken decodedToken;
         try {
@@ -37,15 +45,16 @@ public class MemberController {
                     "{\"code\":\"INVALID_TOKEN\", \"message\":\"" + e.getMessage() + "\"}");
         }
         // 사용자를 등록한다.
-        Member registeredMember = memberService.register(
+        UserInfo registeredUser = memberService.register(
                 decodedToken.getUid(), decodedToken.getEmail(), registerInfo.getNickname());
-        return new UserInfo(registeredMember);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(registeredUser);
     }
-
 
     @GetMapping("/login")
     public UserInfo  login(Authentication authentication) {
-        Member member = ((Member) authentication.getPrincipal());
+        Member member = ((Member)authentication.getPrincipal());
         return new UserInfo(member);
     }
 }
