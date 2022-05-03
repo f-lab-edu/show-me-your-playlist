@@ -1,6 +1,7 @@
-package play.playlist.domain;
+package play.playlist.domain.star;
 import lombok.Getter;
 import lombok.Setter;
+import play.playlist.domain.music.Music;
 import play.playlist.domain.member.entity.Member;
 
 import javax.persistence.*;

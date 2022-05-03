@@ -1,8 +1,9 @@
-package play.playlist.domain;
+package play.playlist.domain.likes;
 
 import lombok.Getter;
 import lombok.Setter;
 import play.playlist.domain.member.entity.Member;
+import play.playlist.domain.music.Music;
 
 import javax.persistence.*;
 

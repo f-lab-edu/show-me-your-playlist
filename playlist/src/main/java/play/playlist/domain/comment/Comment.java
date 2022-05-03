@@ -1,4 +1,4 @@
-package play.playlist.domain;
+package play.playlist.domain.comment;
 
 import lombok.Getter;
 import lombok.Setter;
