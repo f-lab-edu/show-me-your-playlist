@@ -1,6 +1,4 @@
 package play.playlist.domain.member.service;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,7 +9,7 @@ import org.springframework.stereotype.Service;
 import play.playlist.domain.member.dao.MemberRepository;
 
 import org.springframework.transaction.annotation.Transactional;
-import play.playlist.dto.UserInfo;
+import play.playlist.dto.response.memberRegisterResponseDto;
 
 import java.util.List;
 
@@ -32,14 +30,14 @@ public class MemberService implements UserDetailsService {
     }
 
     @Transactional
-    public UserInfo register(String uid, String email, String nickname) {
+    public memberRegisterResponseDto register(String uid, String email, String nickname) {
         Member member = Member.builder()
                 .uid(uid)
                 .email(email)
                 .nickname(nickname)
                 .build();
         memberRepository.save(member);
-        return new UserInfo(memberRepository.save(member));
+        return new memberRegisterResponseDto(memberRepository.save(member));
     }
 
     @Transactional(readOnly = true)

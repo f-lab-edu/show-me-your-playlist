@@ -1,4 +1,4 @@
-package play.playlist.dto;
+package play.playlist.dto.request;
 
 
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RegisterInfo {
+public class memberRegisterRequestDto {
     private String uid;
     private String email;
     private String nickname;

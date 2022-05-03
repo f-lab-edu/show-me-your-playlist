@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import play.playlist.domain.member.service.MemberService;
-import play.playlist.dto.RegisterInfo;
-import play.playlist.dto.UserInfo;
+import play.playlist.dto.request.memberRegisterRequestDto;
+import play.playlist.dto.response.memberRegisterResponseDto;
 import play.playlist.util.RequestUtil;
 
 
@@ -33,8 +33,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("")
-    public ResponseEntity<UserInfo> register(@RequestHeader("Authorization") String authorization,
-                                             @RequestBody RegisterInfo registerInfo) {
+    public ResponseEntity<memberRegisterResponseDto> register(@RequestHeader("Authorization") String authorization,
+                                                              @RequestBody memberRegisterRequestDto memberRegisterRequestDto) {
         // TOKEN을 가져온다.
         FirebaseToken decodedToken;
         try {
@@ -45,16 +45,16 @@ public class MemberController {
                     "{\"code\":\"INVALID_TOKEN\", \"message\":\"" + e.getMessage() + "\"}");
         }
         // 사용자를 등록한다.
-        UserInfo registeredUser = memberService.register(
-                decodedToken.getUid(), decodedToken.getEmail(), registerInfo.getNickname());
+        memberRegisterResponseDto registeredUser = memberService.register(
+                decodedToken.getUid(), decodedToken.getEmail(), memberRegisterRequestDto.getNickname());
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(registeredUser);
     }
 
     @GetMapping("/login")
-    public UserInfo  login(Authentication authentication) {
+    public memberRegisterResponseDto login(Authentication authentication) {
         Member member = ((Member)authentication.getPrincipal());
-        return new UserInfo(member);
+        return new memberRegisterResponseDto(member);
     }
 }
