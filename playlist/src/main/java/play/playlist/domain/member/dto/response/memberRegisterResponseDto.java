@@ -1,4 +1,4 @@
-package play.playlist.dto.response;
+package play.playlist.domain.member.dto.response;
 import lombok.Getter;
 import lombok.Setter;
 import play.playlist.domain.member.entity.Member;
