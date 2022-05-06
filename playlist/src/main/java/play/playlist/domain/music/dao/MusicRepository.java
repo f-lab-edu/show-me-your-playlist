@@ -7,8 +7,8 @@ import play.playlist.domain.music.entity.Music;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MusicRepository extends JpaRepository<Music, Long> {
-
 }
