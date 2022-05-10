@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import play.playlist.domain.member.service.MemberService;
-import play.playlist.dto.request.memberRegisterRequestDto;
-import play.playlist.dto.response.memberRegisterResponseDto;
+import play.playlist.domain.member.dto.request.memberRegisterRequestDto;
+import play.playlist.domain.member.dto.response.memberRegisterResponseDto;
 import play.playlist.util.RequestUtil;
 
 

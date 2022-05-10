@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import play.playlist.domain.member.dao.MemberRepository;
 
 import org.springframework.transaction.annotation.Transactional;
-import play.playlist.dto.response.memberRegisterResponseDto;
+import play.playlist.domain.member.dto.response.memberRegisterResponseDto;
 
 import java.util.List;
 
