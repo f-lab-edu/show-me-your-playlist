@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.web.WebAppConfiguration;
 import play.playlist.domain.music.dao.MusicRepository;
-import play.playlist.domain.music.dto.MusicResponseDto;
 import play.playlist.domain.music.entity.Music;
 
 import java.util.List;
