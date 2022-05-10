@@ -33,7 +33,7 @@
 
 좌충우돌 개발 스토리를 기록합니다.
 
-- [블로그 바로가기](https://sebiblog.tistory.com/category/Project/show%20me%20your%20playlist)
+- [블로그 바로가기](https://sebiblog.tistory.com/category/Project/show%20me%20your%20playlist) UPDATE 중!
 
   - [1)  프로젝트 소개](https://sebiblog.tistory.com/37?category=555906)
   - [2) 기획과 설계](https://sebiblog.tistory.com/38?category=555906)
