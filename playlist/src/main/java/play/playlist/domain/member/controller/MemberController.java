@@ -54,7 +54,7 @@ public class MemberController {
 
     @GetMapping("/login")
     public memberRegisterResponseDto login(Authentication authentication) {
-        Member member = ((Member)authentication.getPrincipal());
+        Member member = (Member)authentication.getPrincipal();
         return new memberRegisterResponseDto(member);
     }
 }
