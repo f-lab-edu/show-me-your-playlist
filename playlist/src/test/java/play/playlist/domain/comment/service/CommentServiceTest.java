@@ -119,7 +119,7 @@ public class CommentServiceTest {
 
     @Test
     @DisplayName("댓글 작성 시 상세 음악 정보가 없는 경우 테스트")
-    public void save_comment_without_musicInfo() {
+    public void saveCommentWithoutMusicInfo() {
 
         //given
         Long musicId = 667L;
@@ -132,7 +132,7 @@ public class CommentServiceTest {
 
     @Test
     @DisplayName("댓글 작성 성공 테스트")
-    public void save_comment() throws Exception {
+    public void saveComment() throws Exception {
         //given
         when(musicRepository.findById(any())).thenReturn(Optional.ofNullable(music));
         when(commentRepository.save(any())).thenReturn(comment);
@@ -148,7 +148,7 @@ public class CommentServiceTest {
 
     @Test
     @DisplayName("댓글 수정 시 수정할 댓글 없는 경우 테스트")
-    public void update_comment_without_commentInfo() throws Exception {
+    public void updateCommentWithoutCommentInfo() throws Exception {
         //given
         CommentSaveRequestDto requestDto = new CommentSaveRequestDto("수정 댓글");
         when(commentRepository.findById(any())).thenReturn(Optional.empty());
@@ -161,7 +161,7 @@ public class CommentServiceTest {
 
     @Test
     @DisplayName("권한 있는 사용자 댓글 수정 성공 테스트")
-    public void update_comment() throws Exception {
+    public void updateComment() throws Exception {
 
         //given
         when(commentRepository.findById(any())).thenReturn(Optional.ofNullable(comment));
@@ -181,7 +181,7 @@ public class CommentServiceTest {
 
     @DisplayName("권한 있는 사용자 댓글 삭제 테스트")
     @Test
-    public void delete_comment() throws Exception {
+    public void deleteComment() throws Exception {
 
         // given
         when(commentRepository.findById(any())).thenReturn(Optional.ofNullable(comment));
