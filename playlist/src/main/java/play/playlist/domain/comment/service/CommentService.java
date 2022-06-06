@@ -77,7 +77,7 @@ public class CommentService {
     }
 
     @Transactional
-    public void delete(Long commentId, Member member)
+    public Long delete(Long commentId, Member member)
     {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 댓글은 존재하지 않습니다."+ commentId));
@@ -87,5 +87,6 @@ public class CommentService {
         }
 
         commentRepository.delete(comment);
+        return commentId;
     }
 }
