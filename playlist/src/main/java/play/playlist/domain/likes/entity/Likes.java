@@ -1,7 +1,6 @@
-package play.playlist.domain.likes;
+package play.playlist.domain.likes.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import play.playlist.domain.member.entity.Member;
 import play.playlist.domain.music.entity.Music;
 
@@ -9,6 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Likes {
     @Id
     @GeneratedValue
@@ -23,5 +23,11 @@ public class Likes {
     @JoinColumn(name = "music_id")
     private Music music;
 
+    @Builder
+    public Likes(long id, Member member, Music music) {
+        this.id = id;
+        this.member = member;
+        this.music = music;
+    }
 
 }
