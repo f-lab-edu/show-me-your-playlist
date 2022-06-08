@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import play.playlist.domain.member.entity.Member;
 import play.playlist.domain.music.entity.Music;
 
 import javax.persistence.EntityManager;
@@ -22,4 +23,5 @@ public interface MusicRepository extends JpaRepository<Music, Long> {
     @Modifying
     @Query("update Music a set a.likeCount = a.likeCount - 1 where a.id = :id")
     int minusLikeCount(@Param("id") Long id);
+
 }

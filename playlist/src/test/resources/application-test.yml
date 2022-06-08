@@ -9,3 +9,9 @@ spring:
     database: mysql
     hibernate:
       ddl-auto: update
+
+  config:
+    activate:
+      on-profile: test
+
+

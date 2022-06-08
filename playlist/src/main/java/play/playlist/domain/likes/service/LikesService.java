@@ -48,7 +48,10 @@ public class LikesService {
             // 좋아요를 증가 시킴
             musicRepository.plusLikeCount(musicId);
             likesRepository.save(likes);
-            likeCount =  1L;
+            if(musicResult.get().getLikeCount() == null)
+                likeCount = 1L;
+            else
+                likeCount = 1L;
             return likeCount;
 
         }
@@ -58,9 +61,11 @@ public class LikesService {
             musicRepository.minusLikeCount(musicId);
             Likes likes = result.get();
             likesRepository.delete(likes);
-            likeCount = 0;
+            if(musicResult.get().getLikeCount() == null)
+                likeCount = 0;
+            else
+                likeCount = 0;
             return likeCount;
         }
     }
-
 }

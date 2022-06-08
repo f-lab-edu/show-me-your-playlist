@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import play.playlist.domain.member.service.MemberService;
 import play.playlist.filter.JwtFilter;
+import play.playlist.filter.MockJwtFilter;
 
 
 @Slf4j
@@ -19,6 +20,14 @@ public class AuthConfig {
 
     private final FirebaseAuth firebaseAuth;
 
+    @Bean
+    @Profile("test")
+    public AuthFilterContainer mockAuthFilter() {
+        log.info("Initializing local AuthFilter");
+        AuthFilterContainer authFilterContainer = new AuthFilterContainer();
+        authFilterContainer.setAuthFilter(new MockJwtFilter(memberService));
+        return authFilterContainer;
+    }
 
     @Bean
     @Profile({"prod", "default"})
