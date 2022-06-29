@@ -1,12 +1,14 @@
-package play.playlist.domain.music;
+package play.playlist.domain.music.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Music {
     @Id
     @GeneratedValue
