@@ -1,4 +1,4 @@
-package play.playlist.domain.music;
+package play.playlist.domain.music.entity;
 
 import lombok.Getter;
 import lombok.Setter;
