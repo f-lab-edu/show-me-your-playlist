@@ -1,3 +1,4 @@
+
 package play.playlist.config.auth;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,3 +39,4 @@ public class AuthConfig {
         return authFilterContainer;
     }
 }
+

@@ -14,4 +14,3 @@ spring:
     activate:
       on-profile: test
 
-
