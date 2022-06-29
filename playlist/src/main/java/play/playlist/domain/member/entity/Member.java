@@ -31,7 +31,7 @@ public class Member implements UserDetails {
 
     @Builder
     public Member(Long id, String uid, String email, String nickname) {
-        this.id = id;
+        //this.id = id;
         this.uid = uid;
         this.email = email;
         this.nickname = nickname;

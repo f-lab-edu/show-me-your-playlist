@@ -7,13 +7,13 @@ import play.playlist.domain.member.entity.Member;
 @Getter
 @Setter
 public class memberRegisterResponseDto {
-    private Long memberId;
+    private Long id;
     private String uid;
     private String email;
     private String nickname;
 
     public memberRegisterResponseDto(Member member) {
-        this.memberId = member.getId();
+        this.id = member.getId();
         this.uid = member.getUid();
         this.email = member.getEmail();
         this.nickname = member.getNickname();
