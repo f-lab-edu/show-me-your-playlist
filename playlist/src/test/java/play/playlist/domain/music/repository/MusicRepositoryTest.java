@@ -35,7 +35,7 @@ public class MusicRepositoryTest {
     public void get_one_musicInfo() {
 
         // when
-        Music one = musicRepository.findById(5L).orElseThrow(() -> new
+        Music one = musicRepository.findById(6L).orElseThrow(() -> new
                 IllegalArgumentException("해당 정보는 없습니다."));
 
         // then

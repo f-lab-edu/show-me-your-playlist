@@ -1,13 +1,14 @@
 package play.playlist.domain.music.entity;
 
+import jdk.jshell.Snippet;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class Music {
     @Id
@@ -18,4 +19,6 @@ public class Music {
     private String artist;
     private String songName;
 
+    @Column(name = "like_count")
+    private Long likeCount;
 }
