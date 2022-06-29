@@ -3,7 +3,7 @@ package play.playlist.domain.likes;
 import lombok.Getter;
 import lombok.Setter;
 import play.playlist.domain.member.entity.Member;
-import play.playlist.domain.music.Music;
+import play.playlist.domain.music.entity.Music;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package play.playlist.dto.request;
+package play.playlist.domain.member.dto.request;
 
 
 import lombok.AllArgsConstructor;
