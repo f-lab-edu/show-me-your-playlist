@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-auth.js"></script>
+</head>
+<body>
+<script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyA0GFAbCwrrK22rb-HobhmFR9NTOY4z5GQ",
+      authDomain: "show-me-your-playlist.firebaseapp.com",
+      projectId: "show-me-your-playlist",
+      storageBucket: "show-me-your-playlist.appspot.com",
+      messagingSenderId: "638041299134",
+      appId: "1:638041299134:web:d32729e2d4a3ef72a266ef",
+      measurementId: "G-TTR5CP6G01"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const handleGoogleLogin = async () => {
+      const result = await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      console.log(result.user.uid);
+      console.log(await result.user.getIdToken());
+    }
+  </script>
+
+<button onclick="handleGoogleLogin();">google login</button>
+</body>
+
+
+</html>

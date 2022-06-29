@@ -6,16 +6,6 @@ spring:
     password: 5679
 
   jpa:
+    database: mysql
     hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        #        show_sql: true
-        format_sql: true
-
-  profile:
-    include: oauth
-
-logging:
-  level:
-    org.hibernate.SQL: debug
+      ddl-auto: create
