@@ -41,12 +41,6 @@
   - [4) 개발 : 환경 셋팅](https://sebiblog.tistory.com/40?category=555906)
   - [5_ 개발 : 데이터 스크래핑](https://sebiblog.tistory.com/41?category=555906)
 
-  
-
-`WIKI` 라는이름으로 문서화하고 있습니다.
-
-- [노션 위키](https://lean-owner-437.notion.site/show-me-your-playlist-0ab86888200945a6a703003cc4a20fdb)
-
 
 
 ### 문서화 보기

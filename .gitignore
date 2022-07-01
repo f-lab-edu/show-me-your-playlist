@@ -1,0 +1,3 @@
+.idea/
+playlist/src/main/java/play/playlist/PlaylistApplication.java
+playlist/src/main/java/play/playlist/filter/MockJwtFilter.java
